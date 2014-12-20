@@ -89,6 +89,41 @@ namespace NicksWeatherAppV2.ViewModel
             }
         }
 
+        /// <summary>
+        /// The <see cref="City" /> property's name.
+        /// </summary>
+        public const string CityPropertyName = "City";
+
+        private string _City = "";
+
+        /// <summary>
+        /// Gets the City property.
+        /// TODO Update documentation:
+        /// Changes to that property's value raise the PropertyChanged event. 
+        /// This property's value is broadcasted by the Messenger's default instance when it changes.
+        /// </summary>
+        public string City
+        {
+            get
+            {
+                return _City;
+            }
+
+            set
+            {
+                if (_City == value)
+                {
+                    return;
+                }
+
+                var oldValue = _City;
+                _City = value;
+
+                // Update bindings and broadcast change using GalaSoft.MvvmLight.Messenging
+                RaisePropertyChanged(CityPropertyName, oldValue, value, true);
+            }
+        }
+
         public MainViewModel()
         {
             if (IsInDesignMode)
@@ -117,7 +152,9 @@ namespace NicksWeatherAppV2.ViewModel
             if (e.Error == null)
             {
                 RootObject result = JsonConvert.DeserializeObject<RootObject>(e.Result);
+                City = result.city.name; 
                 DayList = new ObservableCollection<Day>(result.list);
+
                 CurrentDay = DayList[0];
             }
             else

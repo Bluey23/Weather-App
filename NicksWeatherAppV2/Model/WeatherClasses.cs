@@ -16,11 +16,11 @@ namespace NicksWeatherAppV2.Model
 
     public class City
     {
-        public int id { get; set; }
+        //public int id { get; set; }
         public string name { get; set; }
-        public Coord coord { get; set; }
-        public string country { get; set; }
-        public int population { get; set; }
+        //public Coord coord { get; set; }
+        //public string country { get; set; }
+        //public int population { get; set; }
     }
 
     public class Temp
@@ -65,6 +65,7 @@ namespace NicksWeatherAppV2.Model
         }
 
         public City city { get; set; }
+        public Coord coord { get; set; }
         public Temp temp { get; set; }
         public double pressure { get; set; }
         public int humidity { get; set; }
