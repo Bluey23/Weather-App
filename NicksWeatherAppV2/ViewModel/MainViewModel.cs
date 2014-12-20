@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 using GalaSoft.MvvmLight;
 using Newtonsoft.Json;
 using NicksWeatherAppV2.Model;
@@ -31,6 +32,7 @@ namespace NicksWeatherAppV2.ViewModel
 
         private ObservableCollection<Day> _dayList = null;
         Geolocator geo = null;
+        DispatcherTimer refreshTimer = new DispatcherTimer();
 
         /// <summary>
         /// Sets and gets the DayList property.
@@ -98,7 +100,16 @@ namespace NicksWeatherAppV2.ViewModel
                 geo = new Geolocator();
                 getGeoLocation();
 
+                refreshTimer.Interval = new TimeSpan(0, 1, 0);
+                refreshTimer.Tick += refreshTimer_Tick;
+
+                refreshTimer.Start();
             }
+        }
+
+        void refreshTimer_Tick(object sender, EventArgs e)
+        {
+            getGeoLocation();
         }
 
         private void weatherClient_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)

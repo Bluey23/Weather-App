@@ -14,10 +14,10 @@
                             shell:SystemTray.IsVisible="False" Margin="0">
 
     <Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource Locator}}">
-        <library:SlideView SelectionChanged="SlideView_OnSelectionChanged" SelectedIndex="1" >
+        <library:SlideView x:Name="Slide" SelectionChanged="SlideView_OnSelectionChanged" SelectedIndex="1" >
 
             <Grid Background="Tomato" Width="400">
-                <ListBox x:Name="WeatherForcast" ItemsSource="{Binding Main.DayList}" Margin="10,-23,0,23">
+                <ListBox x:Name="WeatherForecast" SelectionChanged="WeatherForecast_SelectionChanged" ItemsSource="{Binding Main.DayList}" Margin="10,-23,0,23" SelectedItem="{Binding Main.CurrentDay}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="2,40,2,2">
@@ -35,31 +35,32 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
+            </Grid>                       
 
+            <Grid>
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Offset="0"/>
+                            <GradientStop Offset="2" Color="{Binding Main.CurrentDay.TempColor, Mode=OneWay}"/>
+                        </LinearGradientBrush>
 
-            </Grid>
-
-            
-
-            <Grid Background="{Binding Main.CurrentDay.TempColor, Mode=OneWay}" >
+                    </Rectangle.Fill>
+                </Rectangle>
                 <StackPanel Orientation="Vertical">
-                <TextBlock HorizontalAlignment="Center" Height="130" Margin="0,42,0,0" TextWrapping="Wrap" Text="Today" VerticalAlignment="Top" Width="480" DataContext="{Binding Main.CurrentDay}" FontSize="72" TextAlignment="Center"/>
-                    <TextBlock HorizontalAlignment="Center" Text="{Binding city.name}" FontSize="24" Margin="0,-20,0,0" DataContext="{Binding Main.CurrentDay}"/>
+                    <TextBlock HorizontalAlignment="Center" Height="130" Margin="0,42,0,0" TextWrapping="Wrap" Text="Today" VerticalAlignment="Top" Width="480" DataContext="{Binding Main.CurrentDay}" FontSize="72" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Center" Text="{Binding Time.Now, Mode=OneWay, StringFormat=\{0:g\}}" FontSize="24" Margin="0,-20,0,0" DataContext="{Binding Main.CurrentDay}"/>
                 </StackPanel>
                 <TextBlock HorizontalAlignment="Center" Height="158" Margin="0,450,0,0" TextWrapping="Wrap" Text="{Binding Main.CurrentDay.weather[0].description}" VerticalAlignment="Top" Width="475" TextAlignment="Center" LineHeight="48" FontSize="36"/>
-
-        
-                    <TextBlock HorizontalAlignment="Center" Height="195" TextWrapping="Wrap" Text="{Binding Main.CurrentDay.temp.day, StringFormat=\{0:0°\}}" VerticalAlignment="Top"  TextAlignment="Center" FontSize="100" Margin="0,550,0,0"/>
-
-
+                <TextBlock HorizontalAlignment="Center" Height="195" TextWrapping="Wrap" Text="{Binding Main.CurrentDay.temp.day, StringFormat=\{0:0°\}}" VerticalAlignment="Top"  TextAlignment="Center" FontSize="100" Margin="0,550,0,0"/>
 
                 <Image HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Top" Source="{Binding Main.CurrentDay.IconPath, Mode=OneWay}" Height="300"/>
             </Grid>         
 
             
-            <Grid Background="#FF1B8DF1" Width="400">
-                <StackPanel Orientation="Horizontal"> 
-                    <TextBlock Text="{Binding Main.CurrentDay.weather[0].main, Mode=TwoWay}" />
+            <Grid Background="#FF1B8DF1" DataContext="{Binding Main.CurrentDay}">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock FontSize="48" TextAlignment="Center" HorizontalAlignment="Center" Text="{Binding Time.DayOfWeek, Mode=OneWay}" />
                 </StackPanel>
             </Grid>
 

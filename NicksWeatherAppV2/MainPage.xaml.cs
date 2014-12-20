@@ -16,13 +16,10 @@ namespace NicksWeatherAppV2
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        Geolocator geo; 
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-            geo = new Geolocator();
-
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -73,7 +70,11 @@ namespace NicksWeatherAppV2
 
         private void SlideView_OnSelectionChanged(object sender, EventArgs e)
         {
+        }
 
+        private void WeatherForecast_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Slide.SelectedIndex = 2;
         }
 
     }
