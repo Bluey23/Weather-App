@@ -64,8 +64,6 @@ namespace NicksWeatherAppV2.Model
             set { _time = value; }
         }
 
-        public City city { get; set; }
-        public Coord coord { get; set; }
         public Temp temp { get; set; }
         public double pressure { get; set; }
         public int humidity { get; set; }

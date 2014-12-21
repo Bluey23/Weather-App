@@ -128,6 +128,13 @@ namespace NicksWeatherAppV2.ViewModel
         {
             if (IsInDesignMode)
             {
+                DayList = new ObservableCollection<Day>();
+                DayList.Add(new Day { temp = new Temp { day = 20, eve = 20, max = 20, min = 20, morn = 20, night = 20 }, Time = DateTime.Now, humidity = 1000, rain = 10, weather = new System.Collections.Generic.List<Weather> { new Weather { icon = "01d", description = "Rain", main = "Rain" } }, speed = 34, pressure = 100, deg = 23, clouds = 23 });
+                DayList.Add(new Day { temp = new Temp { day = 20, eve = 20, max = 20, min = 20, morn = 20, night = 20 }, Time = DateTime.Now.AddDays(1), humidity = 1000, rain = 10, weather = new System.Collections.Generic.List<Weather> { new Weather { icon = "01d", description = "Rain", main = "Rain" } } });
+                DayList.Add(new Day { temp = new Temp { day = 20, eve = 20, max = 20, min = 20, morn = 20, night = 20 }, Time = DateTime.Now.AddDays(2), humidity = 1000, rain = 10, weather = new System.Collections.Generic.List<Weather> { new Weather { icon = "01d", description = "Rain", main = "Rain" } } });
+                DayList.Add(new Day { temp = new Temp { day = 20, eve = 20, max = 20, min = 20, morn = 20, night = 20 }, Time = DateTime.Now.AddDays(3), humidity = 1000, rain = 10, weather = new System.Collections.Generic.List<Weather> { new Weather { icon = "01d", description = "Rain", main = "Rain" } } });
+                DayList.Add(new Day { temp = new Temp { day = 20, eve = 20, max = 20, min = 20, morn = 20, night = 20 }, Time = DateTime.Now.AddDays(4), humidity = 1000, rain = 10, weather = new System.Collections.Generic.List<Weather> { new Weather { icon = "01d", description = "Rain", main = "Rain" } } });
+                CurrentDay = DayList[0];
             }
             else
             {
@@ -135,7 +142,7 @@ namespace NicksWeatherAppV2.ViewModel
                 geo = new Geolocator();
                 getGeoLocation();
 
-                refreshTimer.Interval = new TimeSpan(0, 1, 0);
+                refreshTimer.Interval = new TimeSpan(0, 10, 0);
                 refreshTimer.Tick += refreshTimer_Tick;
 
                 refreshTimer.Start();
