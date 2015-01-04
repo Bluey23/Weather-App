@@ -18,8 +18,7 @@ namespace NicksWeatherAppV2
     public partial class MainPage : PhoneApplicationPage
     {
 
-        ShellTileSchedule SampleTileSchedule = new ShellTileSchedule();
-        
+        public static ShellTile newTile = ShellTile.ActiveTiles.First();        
 
         // Constructor
         public MainPage()
@@ -81,21 +80,7 @@ namespace NicksWeatherAppV2
         {
             Slide.SelectedIndex = 1;
 
-            ShellTile newTile = ShellTile.ActiveTiles.First();
-
-            IconicTileData UpdateTileData = new IconicTileData
-            {
-                Title = "[title]",
-                Count = 9,
-                WideContent1 = "[1st row of content]",
-                WideContent2 = "[2nd row of content]",
-                WideContent3 = "[3rd row of content]",
-                SmallIconImage = new Uri("/Icons/01.pg", UriKind.Relative),
-                IconImage = new Uri("/Icons/01.pg", UriKind.Relative),
-                BackgroundColor = new Color { A = 34, B = 34, G = 23, R = 34 }
-            };
-
-            newTile.Update(UpdateTileData);
+            
         }
 
     }

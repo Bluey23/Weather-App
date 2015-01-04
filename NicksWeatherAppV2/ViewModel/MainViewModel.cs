@@ -3,8 +3,10 @@ using System.Collections.ObjectModel;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Threading;
 using GalaSoft.MvvmLight;
+using Microsoft.Phone.Shell;
 using Newtonsoft.Json;
 using NicksWeatherAppV2.Model;
 using Windows.Devices.Geolocation;
@@ -186,7 +188,8 @@ namespace NicksWeatherAppV2.ViewModel
                 weatherClient.DownloadStringCompleted += weatherClient_DownloadStringCompleted;
 
                 String url = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + lat + "&lon=" + lon + "&cnt=10&mode=json&units=metric";
-                weatherClient.DownloadStringAsync(new Uri(url));
+                weatherClient.DownloadStringAsync(new Uri(url));              
+
             }
             catch (System.UnauthorizedAccessException)
             {
