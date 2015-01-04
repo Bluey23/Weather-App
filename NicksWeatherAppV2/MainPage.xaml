@@ -43,96 +43,19 @@
                     <Rectangle.Fill>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Offset="0"/>
-                            <GradientStop Offset="0.75" Color="{Binding Main.DayList[0].TempColor, Mode=OneWay}"/>
+                            <GradientStop Offset="0.5" Color="{Binding Main.CurrentDay.TempColor, Mode=OneWay}"/>
                         </LinearGradientBrush>
 
                     </Rectangle.Fill>
                 </Rectangle>
                 <StackPanel Orientation="Vertical">
-                    <TextBlock HorizontalAlignment="Center" Height="130" Margin="0,42,0,0" TextWrapping="Wrap" Text="Today" VerticalAlignment="Top" Width="480" DataContext="{Binding Main.CurrentDay}" FontSize="72" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Center" Height="130" Margin="0,42,0,0" TextWrapping="Wrap" Text="{Binding Time.DayOfWeek, Mode=OneWay}" VerticalAlignment="Top" Width="480" DataContext="{Binding Main.CurrentDay}" FontSize="72" TextAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Center" Text="{Binding Main.City, StringFormat=\{0:g\}}" FontSize="36" Margin="0,-20,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-                    <Image HorizontalAlignment="Center" Margin="0,195,0,0" VerticalAlignment="Top" Source="{Binding Main.DayList[0].IconPath, Mode=OneWay}" Height="300"/>
-                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Main.DayList[0].weather[0].description}" VerticalAlignment="Top" Width="475" TextAlignment="Center" LineHeight="48" FontSize="36" Margin="0,-10,0,0"/>
-                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Main.DayList[0].temp.day, StringFormat=\{0:0°\}}" VerticalAlignment="Top"  TextAlignment="Center" FontSize="100" Margin="0,25,0,0" />    
-                </StackPanel>
-            </Grid>
-
-            <Grid Background="Tomato">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock Text="{Binding Main.CurrentDay.Time.DayOfWeek}" FontSize="48" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0" />
-                    <TextBlock Text="{Binding Main.CurrentDay.Time.Date, Mode=OneWay, StringFormat=\{0:M\}}" FontSize="48" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
-
-
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                            <Image Source="{Binding Main.CurrentDay.IconPath, Mode=OneWay}" />
-                            <TextBlock Margin="2,-34,2,2" Text="{Binding Main.CurrentDay.weather[0].main}" FontSize="36" HorizontalAlignment="Center" />
-                        </StackPanel>
-                        <StackPanel Orientation="Vertical" Margin="20,40,0,0">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="2,0,2,2" Text="Morn: " FontSize="36" />
-                                <TextBlock Margin="2,0,2,2" Text="{Binding Main.CurrentDay.temp.morn, StringFormat=\{0:0°\}}" FontSize="36" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="2,0,2,2" Text="Day: " FontSize="36" />
-                                <TextBlock Margin="2,0,2,2" Text="{Binding Main.CurrentDay.temp.day, StringFormat=\{0:0°\}}" FontSize="36" />
-                            </StackPanel>
-
-                            <!-- <Image Source="{Binding Main.CurrentDay.IconPath, Mode=OneWay}" />-->
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="2,0,2,2" Text="Eve: " FontSize="36" />
-                                <TextBlock Margin="2,0,2,2" Text="{Binding Main.CurrentDay.temp.eve, StringFormat=\{0:0°\}}" FontSize="36" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="2,0,2,2" Text="Night: " FontSize="36" />
-                                <TextBlock Margin="2,0,2,2" Text="{Binding Main.CurrentDay.temp.night, StringFormat=\{0:0°\}}" FontSize="36" />
-                            </StackPanel>
-                        </StackPanel>
-
-
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                        <!-- <Image Source="{Binding Main.CurrentDay.IconPath, Mode=OneWay}" />-->
-
-                        <StackPanel Orientation="Vertical" Margin="20,0,0,0">
-
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Humidity: " FontSize="36" />
-                                <TextBlock Text="{Binding Main.CurrentDay.humidity}" FontSize="36" />
-                                <TextBlock Text="%" FontSize="36" />
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Wind: " FontSize="36" />
-                                <TextBlock Text="{Binding Main.CurrentDay.speed}" FontSize="36" />
-                                <TextBlock Text=" kmph" FontSize="36" />
-
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Cloudiness: " FontSize="36" />
-                                <TextBlock Text="{Binding Main.CurrentDay.clouds}" FontSize="36" />
-                                <TextBlock Text="%" FontSize="36" />
-
-                            </StackPanel>
-
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Pressure: " FontSize="36" />
-                                <TextBlock Text="{Binding Main.CurrentDay.pressure}" FontSize="36" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Rain: " FontSize="36" />
-                                <TextBlock Text="{Binding Main.CurrentDay.rain}" FontSize="36" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Snow: " FontSize="36" />
-                                <TextBlock Text="{Binding Main.CurrentDay.snow}" FontSize="36" />
-                            </StackPanel>
-                        </StackPanel>
-
-                    </StackPanel>
+                    <Image HorizontalAlignment="Center" Margin="0,195,0,0" VerticalAlignment="Top" Source="{Binding Main.CurrentDay.IconPath, Mode=OneWay}" Height="300"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Main.CurrentDay.weather[0].description}" VerticalAlignment="Top" Width="475" TextAlignment="Center" LineHeight="48" FontSize="36" Margin="0,-10,0,0"/>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Main.CurrentDay.temp.day, StringFormat=\{0:0°\}}" VerticalAlignment="Top"  TextAlignment="Center" FontSize="100" Margin="0,25,0,0" />    
                 </StackPanel>
             </Grid>
 

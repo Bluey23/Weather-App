@@ -16,31 +16,25 @@
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="NicksWeatherAppV2Token" TaskName="_default">
-        <TemplateCycle>
+        <TemplateIconic>
           <SmallImageURI IsRelative="true" IsResource="false">Icons\13.png</SmallImageURI>
-          <Title>
-          </Title>
-          <Photo01ImageURI IsRelative="true" IsResource="false">Icons\11.png</Photo01ImageURI>
-          <Photo02ImageURI IsRelative="true" IsResource="false">Icons\01.png</Photo02ImageURI>
-          <Photo03ImageURI IsRelative="true" IsResource="false">
-          </Photo03ImageURI>
-          <Photo04ImageURI IsRelative="true" IsResource="false">
-          </Photo04ImageURI>
-          <Photo05ImageURI IsRelative="true" IsResource="false">
-          </Photo05ImageURI>
-          <Photo06ImageURI IsRelative="true" IsResource="false">
-          </Photo06ImageURI>
-          <Photo07ImageURI IsRelative="true" IsResource="false">
-          </Photo07ImageURI>
-          <Photo08ImageURI IsRelative="true" IsResource="false">
-          </Photo08ImageURI>
-          <Photo09ImageURI IsRelative="true" IsResource="false">
-          </Photo09ImageURI>
           <Count>0</Count>
-          <HasLarge>false</HasLarge>
+          <IconImageURI IsRelative="true" IsResource="false">Icons\01.png</IconImageURI>
+          <Title>Iconic</Title>
+          <Message>
+          </Message>
+          <BackgroundColor>
+          </BackgroundColor>
+          <HasLarge>True</HasLarge>
+          <LargeContent1>
+          </LargeContent1>
+          <LargeContent2>
+          </LargeContent2>
+          <LargeContent3>
+          </LargeContent3>
           <DeviceLockImageURI IsRelative="true" IsResource="false">
           </DeviceLockImageURI>
-        </TemplateCycle>
+        </TemplateIconic>
       </PrimaryToken>
     </Tokens>
     <ScreenResolutions>
