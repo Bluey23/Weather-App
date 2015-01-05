@@ -18,7 +18,7 @@ namespace NicksWeatherAppV2
     public partial class MainPage : PhoneApplicationPage
     {
 
-        public static ShellTile newTile = ShellTile.ActiveTiles.First();        
+             
 
         // Constructor
         public MainPage()
@@ -80,7 +80,6 @@ namespace NicksWeatherAppV2
         {
             Slide.SelectedIndex = 1;
 
-            
         }
 
     }

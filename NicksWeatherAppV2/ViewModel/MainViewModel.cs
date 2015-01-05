@@ -197,5 +197,7 @@ namespace NicksWeatherAppV2.ViewModel
             }
 
         }
+
+
     }
 }
